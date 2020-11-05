@@ -1,0 +1,123 @@
+<head>
+    <title>ForDogs - Home</title>
+</head>
+<div>
+    <!-- HEADER -->
+   {{>header}}
+   <!-- HEADER -->
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        <div class="container col-sm-10" id="pagecontent">
+            <h1 class="display-4">My dogs</h1>
+            <div id="dogCards" class="d-inline-block">
+                {{#each dogs}}
+                <a href="/home-page/pets/{{this.id}}" class="btn">
+                    <img  class="img-fluid border border-dark rounded" width="250" height="250" src="../images/product.png" alt="">
+                    <span class="h4">{{this.name}}</span>
+                </a>
+                {{/each}}
+                {{#if messages.created_order_msg}}
+                <div class="alert alert-success alert-dismissible fade show text-center fixed-top lead p-3 w-50 m-auto" role="alert">
+                    Your order has been confirmed.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {{/if }}
+            </div>
+            <button class="btn" data-toggle="modal" data-target="#newPet">
+                <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                </svg><br> <span class="lead">Add dog</span>
+            </button>
+
+            <h1 class="display-4">Upcoming appointments</h1>
+            <div id="upcomingOrder">
+                {{#each appointments}}
+                    <div class="card m-3 my-4 d-inline-block border border-info" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.purpose}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{this.name}}</h6>
+                            <input readonly class="d-block my-2"type="date" name="" value={{this.to_char}}>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            <h1 class="display-4">Orders</h1>
+            <div>
+            <div class="card mb-3" style="width: 18rem;">
+            {{#each orders}}
+                <div class="card-header pb-0">
+                    <p class="card-text d-inline-block"><b>DELIVERY DATE</b></p>
+                    <p class="card-text d-inline-block pl-4 float-right">{{this.to_char}}</p>
+                    <br>
+                    <p class="card-text d-inline-block mb-0"><b>TOTAL</b></p> 
+                    <p class="card-text d-inline-block pl-4 float-right">${{this.order_price}}</p>
+                </div>
+            {{/each}}
+            {{#each products}}
+                <div class="card-body">
+                    <h5 class="card-title mb-1">{{this.productname}}</h5>
+                    <h6 class="card-subtitle text-muted mb-2"> {{this.category}}</h6>
+                    <p class="card-text mb-1">PRICE ${{this.price}}</p>
+                    <p class="card-text">QUANTITY {{this.quantity}}</p>
+                </div>
+            {{/each}}
+            </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW DOG ADD WINDOW -->
+    <div class="modal fade" id="newPet" tabindex="-1" aria-labelledby="addTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h4 class="modal-title" id="addTitle">Add your pet's information</h4>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/home-page" method="POST">
+                        <div class="form-group">
+                            <label for="dogName" class="col-form-label">Name:</label>
+                            <input type="text" name="dogName" id="dogName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dogBreed" class="col-form-label">Breed:</label>
+                            <input type="text" name="dogBreed" id="dogBreed" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dogAge" class="col-form-label">Age:</label>
+                            <input type="text" name="dogAge" id="dogAge" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dogBirth" class="col-form-label">Birthday:</label>
+                            <input type="date" name="dogBirth" id="dogBirth" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dogPicture" class="lead mb-1">Add your dog's picture</label>
+                            <input type="file" name="dogPicture" id="dogPicture">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary px-3" id="addDogBtn">Add dog</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- NEW DOG ADD END-->
+
+    <!-- FOOTER -->
+    {{>footer}}
+</div>
+
+{{>toggleNav}}

@@ -1,0 +1,43 @@
+<head>
+    <title>ForDogs - Appointments</title>
+</head>
+<div>
+    {{>header}}
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        <div class="container col-sm-10 bg-dark" id="pagecontent">
+            <h1 class="display-4 text-center text-white">Edit appointment</h1>
+            <br>
+            <div class="row mx-0">
+                <form method="POST" action="/appointments/edit-appointment/{{appointment.id}}" class="m-auto p-3 border rounded bg-light">
+                    <div>
+                        <div class="form-group">
+                            <label for="pets">Appointment for: </label>
+                            <input readonly type="text" value="{{dog.name}}">
+                            <input hidden  name="dog_id" type="text" value="{{dog.id}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="purpose" class="col-form-label">Purpose:</label>
+                            <input type="text" name="purpose" id="purpose" value="{{appointment.purpose}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDate" class="col-form-label">Date:</label>
+                            <input type="date" name="date" id="appointmentDate" value="{{appointment.to_char}}">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a href="/appointments" type="button" class="btn btn-danger" data-dismiss="modal">Return</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    {{>footer}}
+    <!-- FOOTER END -->
+
+</div>
+
+{{>toggleNav}}

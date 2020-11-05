@@ -1,0 +1,129 @@
+
+<head>
+    <title>ForDogs - Check-out</title>
+</head>
+<div>
+    <div class="alert alert-success alert-dismissible fade show text-center fixed-top h3 font-weight-normal p-3 w-50 m-auto d-none" role="alert" id="createdAlert">
+        Changes have been saved succesfully
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{>header}}
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        <div class="container col-sm-10" id="pagecontent">
+            <div class="row mx-0 mt-5">
+                <div class="col-md-5" >
+                    <h1 class="font-weight-normal">Shipping address 
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-seam" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                        </svg>
+                    </h1>
+                    <div class="row mx-0 border-bottom" >
+                    </div>
+                    <form class="my-3">
+                        <div class="form-group">
+                            <label for="inputName">Name</label>
+                            <input type="email" class="form-control" id="inputName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress2">Address 2</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputCity">City</label>
+                                <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">State</label>
+                                <input type="text" class="form-control" id="inputState">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="inputZip">Zip</label>
+                                <input type="text" class="form-control" id="inputZip">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4" >
+                    <h1 class="font-weight-normal">Payment 
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-credit-card" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                            <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                        </svg>
+                    </h1>
+                    <div class="row mx-0 border-bottom">
+                    </div>
+                    <form class="my-3">
+                        <div class="form-group">
+                            <label for="cardName">Cardholder name</label>
+                            <input type="text" class="form-control" id="cardName">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardNumber">Card number</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="1234 - 56789 - 0123 - 4567">
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="cardDate">Expiration date</label>
+                                <input type="text" class="form-control" placeholder="MM/YY" id="cardDate">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="securityCode">Security code</label>
+                              <input type="text" class="form-control" id="securityCode"placeholder="CVC / CVV">
+                            </div>
+                          </div>
+                    </form>
+                    <h2 class="font-weight-normal">Delivery date 
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                        <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </h2>
+                    <div class="row mx-0 border-bottom">
+                    </div>
+                    <br>
+                    <label class="h4 font-weight-normal" for="deliveryDate">Estimated:
+                    <input class="border-0" type="date" readonly name="deliveryDate" value={{date}}>
+                    </label>
+
+                </div>
+                <div class="col-md-3" >
+                    <div class="p-2">
+                        <p class="h2">Summary</p>
+                        <hr>
+                        <div id="finalOrder">
+                        <p class="h5 text-muted d-inline-block mr-5">Subtotal </p><p class="h5 text-muted float-right">$  {{total}}</p>
+                        <br>
+                        <p class="h6 text-muted d-inline-block mr-5">Shipping<small><sup>&#x2055</sup></small> </p><p class="h5 text-muted float-right">{{shipping}}</p>
+                        <p class="text-muted m-0"><sup>&#x2055</sup><small>Free shipping over $24.99</small></p>
+                        <hr>
+                        <p class="h3 d-inline-block mr-5">Total </p><p class="h3 float-right">$ {{total}}</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <form action="/payment/finish-order" method="POST">
+                        <button type="submit"class="btn btn-secondary my-2" id="finishBtn"><span class="h5">Finish order</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    {{>footer}}
+    <!-- FOOTER END -->
+
+
+</div>
+
+{{>toggleNav}}

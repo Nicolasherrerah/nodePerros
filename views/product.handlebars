@@ -1,0 +1,55 @@
+
+<head>
+    <title>ForDogs - Products</title>
+</head>
+<div>
+    {{>header}}
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        <div class="container col-sm-10" id="pagecontent">
+            <br>
+            <a href="/shop" class="mt-4">
+                <svg width="5em" height="2.5em" viewBox="0 0 16 16" class="bi bi-arrow-return-left" fill="#dc3545" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+            </a>
+            {{#each product}}
+            <h1 class="display-3 text-center mb-4">{{this.category}}</h1>
+            <div class="row mx-0 mt-5">
+                <div class="col-lg-5 mt-3">
+                    <img src="/../images/product.png" class="img-fluid" alt="" width="300" height="300">
+                </div>
+                <div class="col-lg-7">
+                    <form method="POST" action="/shop/product/{{this.id}}">
+                        <div class="form-group">
+                            <p class="h1 font-weight-normal">{{this.productname}}</p>
+                            <p class="h2 font-weight-normal py-3">$ {{this.price}}</p>
+                            <br>
+                            <label class="h4 text-muted" for="quantity">Quantity: </label>
+                            <select class="h5" name="quantity" id="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <div class="text-center py-4">
+                            <button type="submit" class="btn btn-block btn-outline-dark mr-3" id="addCartBtn" ><span class="h5">Add to cart</span></button>
+                        </div>
+                    </form>
+                </div>
+            {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    {{>footer}}
+    <!-- FOOTER END -->
+
+
+</div>
+
+{{>toggleNav}}

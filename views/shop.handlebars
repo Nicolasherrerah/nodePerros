@@ -1,0 +1,261 @@
+<head>
+    <title>ForDogs - Shop</title>
+</head>
+<div>
+    {{>header}}
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        {{#if messages.product_added}}
+            <div class="alert alert-dark alert-dismissible fade show text-center fixed-top lead p-3 w-50 m-auto" role="alert">
+                Product added to cart.<a href="/check-out" class="alert-link"> Go to cart.</a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {{/if }}
+        <div class="container col-md-10 " id="pagecontent">
+            <h1 class="display-4 text-center">Find everything you need for your dog!</h1>
+            <br>
+            <form class="mx-5">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <select class="custom-select" id="categorySelect" onchange="selectedCategory()">
+                            <option selected>Category</option>
+                            <option class="dropdown-item" value="food">Food &amp; Treats</option>
+                            <option class="dropdown-item" value="clothes">Clothes &amp; Accesories</option>
+                            <option class="dropdown-item" value="bath">Grooming &amp; bathing supplies</option>
+                            <option class="dropdown-item" value="toys">Toys</option>
+                        </select>
+                    </div>
+                    <input type="search" class="form-control" name="" id="searchItem" placeholder="Search " aria-describedby="searchIcon">
+                    <div class="input-group-append">
+                        <button class="input-group-text" id="searchIcon">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="carousel slide" id="foodCarousel" data-interval="false">
+                <h1 class="mb-0 mt-3 h1 font-weight-normal categoryTitle">Food &amp; Treats</h1>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/1" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto" >
+                                    Royal Canin, adult 13.6 kg - <span><small> $</small>75</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/2" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">
+                                    Nupec, adult 20 kg - <span><small> $</small>60</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/3" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">
+                                    Dog Chow, adult 18 kg - <span><small> $</small>35</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/4" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">
+                                    BARKYS Steaks 550 g - <span><small> $</small>7.99</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/5" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">
+                                    Ol' Roy Sticks 24 pcs - <span><small> $</small>2.99</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/6" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">
+                                    Nupec PENU 180 g - <span><small> $</small>4.99</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#foodCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#foodCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="carousel slide" id="clothesCarousel" data-interval="false">
+                <h1 class="mb-0 h1 font-weight-normal categoryTitle">Clothes &amp; Accesories</h1>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/7" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Sweater for large dogs - <span><small> $</small>25</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/8" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Spider costume, small dogs - <span><small> $</small>17.99</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/9" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Blanket coat, medium 16&quot; - <span><small> $</small>25</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center store-product">
+                                <a href="/shop/product/10" class="text-decoration-none lead">
+                                    <img src="../images/product.png" alt="" class="m-auto">Bandana unisize - <span><small> $</small>15</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center store-product">
+                                <a href="/shop/product/11" class="text-decoration-none lead">
+                                    <img src="../images/product.png" alt="" class="m-auto">Dog boots medium size - <span><small> $</small>20</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center store-product">
+                                <a href="/shop/product/12" class="text-decoration-none lead">
+                                    <img src="../images/product.png" alt="" class="m-auto">Windproof sunglasses - <span><small> $</small>12</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#clothesCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#clothesCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="carousel slide" id="suppliesCarousel" data-interval="false">
+                <h1 class="mb-0 h1 font-weight-normal categoryTitle">Grooming &amp; bathing supplies</h1>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/13" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Fancy Pets shampoo 250 ml - <span><small> $</small>15</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/14" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Flea &amp; tick repellent soap - <span><small> $</small>15</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/15" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Hypoallergenic shampoo 470 ml - <span><small> $</small>10</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/16" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Grooming Trimmers - <span><small> $</small>9.99</span>
+                                    
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/17" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Deshedding glove - <span><small> $</small>9.99</span> 
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/18" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Hair remover - <span><small> $</small>9.99</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#suppliesCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#suppliesCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="carousel slide" id="toysCarousel" data-interval="false">
+                <h1 class="mb-0 h1 font-weight-normal categoryTitle">Toys</h1>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/19" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">KONG T2, medium - <span><small> $</small>9.99</span> 
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/20" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Duckworth yellow duck toy - <span><small> $</small>4.99</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/21" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Nylabone durable chew toys - <span><small> $</small>11.99</span> 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/22" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Chuckit! Ball 2pcs. - <span><small> $</small>8.99</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/23" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Squeaking monkey plush - <span><small> $</small>7.99</span> 
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-12 my-5 text-center">
+                                <a href="/shop/product/24" class="text-decoration-none lead store-product">
+                                    <img src="../images/product.png" alt="" class="m-auto">Nerf nylon frisbee - <span><small> $</small>7.99</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#toysCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#toysCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    {{>footer}}
+    <!-- FOOTER END -->
+
+</div>
+
+{{>toggleNav}}

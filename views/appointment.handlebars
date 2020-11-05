@@ -1,0 +1,152 @@
+<head>
+    <title>ForDogs - Appointments</title>
+</head>
+<div>
+    {{>header}}
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        {{#if messages.new_appointment_msg}}
+            <div class="alert alert-success alert-dismissible fade show text-center fixed-top lead p-3 w-50 m-auto" role="alert">
+                Appointment added succesfully.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {{/if }}
+        {{#if messages.edit_appointment_msg}}
+            <div class="alert alert-success alert-dismissible fade show text-center fixed-top lead p-3 w-50 m-auto" role="alert">
+                Appointment updated succesfully.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {{/if }}
+        <div class="container col-sm-10" id="pagecontent">
+            <h1 class="display-4 text-center">Calendar</h1>
+            <div class="row mx-0">
+                <div class="col-md-8">
+                    {{#each appointments}}
+                        <div class="card m-3 my-4 d-inline-block" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.purpose}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{this.name}}</h6>
+                                <input readonly class="d-block my-2"type="date" name="" value={{this.to_char}}>
+                                <a href="/appointments/edit/{{this.id}}" class="btn btn-secondary btn-sm card-link px-3">Edit</a>
+                                <a href="/appointments/remove/{{this.id}}" class="btn btn-danger btn-sm card-link">Cancel</a>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="text-right col-md-4">
+                    <button class="btn mr-5 my-5" data-toggle="modal" data-target="#newAppointment" id="newAppoBtn">
+                        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-calendar-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            <path fill-rule="evenodd" d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
+                        </svg> <br>
+                        <span class="h4">New <br> appointment</span>
+                    </button>
+                </div>
+            </div>
+            <div class="row mx-0 my-3 text-center">
+                <table class="table table-bordered table-responsive-sm">
+                    <caption>Appointments</caption>
+                    <thead>
+                        <h1 id="calendarMonth"></h1>
+                    </thead>
+                    <tbody>
+                    <tr class="bg-light">
+                        <td scope="row">1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td scope="row">8</td>
+                        <td>9</td>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>12</td>
+                        <td>13</td>
+                        <td>14</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td scope="row">15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td>19</td>
+                        <td>20</td>
+                        <td>21</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td scope="row">22</td>
+                        <td>23</td>
+                        <td>24</td>
+                        <td>25</td>
+                        <td>26</td>
+                        <td>27</td>
+                        <td>28</td>
+                    </tr>
+                    <tr class="bg-light">
+                        <td scope="row">29</td>
+                        <td>30</td>
+                        <td>31</td>
+                        
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- NEW APPOINTMENT WINDOW -->
+    <div class="modal fade" id="newAppointment" tabindex="-1" aria-labelledby="appointmentTitle" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <div class="modal-header bg-light">
+                    <h4 class="modal-title" id="appointmentTitle">New appointment</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/appointments/new-appointment" method="POST">
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="pets">Appointment for: </label>
+                                <select name="dog_id" id="pets">
+                                    {{#each dogs}}
+                                        <option value={{this.id}}>{{this.name}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="purpose" class="col-form-label">Purpose:</label>
+                                <input type="text" name="purpose" id="purpose">
+                            </div>
+                            <div class="form-group">
+                                <label for="appointmentDate" class="col-form-label">Date:</label>
+                                <input type="date" name="date" id="appointmentDate">
+                            </div>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <button type="submit" class="btn btn-primary" id="addAppoBtn">Schedule</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+          </div>
+        </div>
+      </div>
+    <!-- NEW APPOINTMENT WINDOW END-->
+
+    <!-- FOOTER -->
+    {{>footer}}
+    <!-- FOOTER END -->
+
+</div>
+
+{{>toggleNav}}
+

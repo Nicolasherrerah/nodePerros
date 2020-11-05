@@ -1,0 +1,61 @@
+
+<head>
+    <title>ForDogs - User</title>
+</head>
+<div>
+    <div class="alert alert-success alert-dismissible fade show text-center fixed-top h3 font-weight-normal p-3 w-50 m-auto d-none" role="alert" id="createdAlert">
+        Changes have been saved succesfully
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{>header}}
+    <div class="row mx-0" id="homepage">
+        {{>nav}}
+        <div class="container col-sm-10" id="pagecontent">
+            <h1 class="display-4 text-center">Account</h1>
+            <div class="row">
+            <div class="col-md-4 text-center">
+                <button class="btn" height="200" width="200"><img src="../images/product.png" alt="..." class="img-thumbnail rounded-circle mx-auto bg-danger" height="200" width="200" id="PPicture"></button>
+                <div class="dropdown text-center mt-2">
+                    <a class="btn btn-success text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Change picture
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#"><input class="custom-file-input h-auto" type="file" name="" id="newPicture"><label class="custom-file-label" for="newPicture">Choose file</label></a>
+                        <a class="dropdown-item" href="#" onclick="changePPicture()">Change</a>
+                        <a class="dropdown-item" href="#" onclick="removePPicture()">Remove</a>
+                    </div>
+                    <p id="test"></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <form>
+                    <div class="form-group mt-4">
+                        <label for="username">Username:</label>
+                        <input type="text" readonly class="form-control-plaintext" name="" id="username" value={{username}}>
+                        <label for="email">Email:</label>
+                        <input type="email" readonly class="form-control-plaintext" name="" id="email" value={{email}}>
+                        <label for="username">Name:</label>
+                        <input type="text" readonly class="form-control-plaintext" name="" id="name" value={{name}}>
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" readonly class="form-control-plaintext" name="" id="birthday">
+                        <br>
+                    </div>
+                </form>
+                <button class="btn btn-success px-3 mb-2" onclick="editMode()" id="editprofileBtn"><span class="h5 font-weight-normal">Edit profile</span></button>
+                <button class="btn btn-success px-3 mb-2 d-none" onclick="" id="savechangesBtn"><span class="h5 font-weight-normal">Save changes</span></button>
+                <button class="btn btn-danger ml-4 mb-2 d-none" onclick="location.reload()" id="cancelchangesBtn"> <span class="h5 font-weight-normal">Cancel</span></button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    {{>footer}}
+    <!-- FOOTER END -->
+
+
+</div>
+
+{{>toggleNav}}

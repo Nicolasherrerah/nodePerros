@@ -1,0 +1,72 @@
+<head>
+    <title>forDogs</title>
+</head>
+<div id="index">
+    <!-- HEADER -->
+    
+    <header class="navbar navbar-light bg-light">
+        <div class="text-dark display-3 mb-0 text-center">
+            <a class="text-decoration-none"href="index.html">
+                <img class="d-inline-block mr-4 ml-2" width="64" height="64" src="images/logo.png" alt="">
+            </a>
+            ForDogs
+        </div>
+    </header>
+    {{#if messages.success_msg}}
+        <div class="alert alert-success text-center fixed-top h3 font-weight-normal p-3 w-50 m-auto" role="alert" id="createdAlert">
+            Your account has been created.
+        </div>
+    {{/if }}
+    <!-- MAIN -->
+    <div class="row mx-0">
+        <div class="col-md-8 p-5" >
+            <h1 class="display-4 mb-3">Everything for your dog!</h1>
+            <ul >
+                <li><span class="h3 font-weight-light">Save your pets information</span><br><span class="h5 font-weight-light">- Name, age, breed. <br>- Vaccinations &amp; vet check-ups.</span></li>
+                <br><br>
+                <li<span class="h3 font-weight-light">Buy</span><br><span class="h5 font-weight-light">- Dog food &amp; treats. <br>- Clothes &amp; accesories.<br>- Grooming &amp; bathing supplies.<br>- Toys.</span></li>
+                <br><br>
+                <li><span class="h3 font-weight-light">Schedule appointments</span><br><span class="h5 font-weight-light">- Upcoming shots. <br>- Yearly check-ups. <br>- Grooming &amp; bathing.</span></li>
+                <br><br>
+            </ul>
+        </div>
+        <div class="col-md-4 container py-5 pr-0">
+            <form class="bg-dark text-white rounded w-75 m-auto" novalidate action="/" method="POST">
+                <p class="h1 font-weight-light pt-3 p-2 text-center">Sign In</p>
+                <div class="form-group p-2">
+                    <svg class="mb-1" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-envelope" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+                    </svg>
+                    <label for="email" class="mt-4">Email</label>
+                    <input type="email" class="form-control mb-2" id="email" name="email"placeholder="Enter email" required>
+                    <div class="invalid-feedback" id="emailFeedback">Incorrect email or password.</div>
+                </div>
+                <div class="form-group p-2">
+                    <svg class="mb-1" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-lock" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M11.5 8h-7a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1zm-7-1a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-7zm0-3a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z"/>
+                    </svg>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password"placeholder="Enter password" required>
+                    <div class="invalid-feedback" id="passwordFeedback">Incorrect email or password.</div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg mb-5 m-2" id="loginBtn">Log in</button>
+                </div>
+                <a class="bg-secondary w-100 text-white d-block py-1 text-center border-top-0 border-dark rounded-bottom" href="/sign-up">Don't have an account, Sign up.</a>
+            </form>
+        </div>
+    </div>
+
+     <!-- FOOTER -->
+    <footer class="w-100 bg-danger">
+        <div class="container text-white p-1">
+            <blockquote class="lead pt-2 m-0 text-center ">&quot;A <b>dog</b> is the only thing on earth that loves you more than you love yourself.&quot;
+                <footer class="blockquote-footer text-white "><cite title="Josh Billings">Josh Billings</cite></footer>
+            </blockquote> 
+            <br>
+            <p class="h5 p-2 mr-3 mb-0 text-white text-right">&copy; 2020 ForDogs </p>
+        </div>
+        
+    </footer>
+
+</div>
